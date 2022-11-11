@@ -1,7 +1,7 @@
 {
   "name": "quote-api",
   "version": "1.0.0",
-  "description": "api that generates quotes",
+  "description": "CRUD applications REST API built using Node.js ",
   "main": "server.js",
   "scripts": {
     "start": "node server",

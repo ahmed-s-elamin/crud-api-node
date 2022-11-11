@@ -1,48 +1,48 @@
 const express = require("express");
 const router = express.Router();
-const Employee = require("../models/emp");
+const User = require("../models/user");
 
 // getting all emps
 router.get("/", async (req, res) => {
   try {
-    const employees = await Employee.find();
-    res.send(employees);
+    const users = await User.find();
+    res.send(users);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
 
 //getting one emp
-router.get("/:id", getEmp, (req, res) => {
-  res.json(res.employee);
+router.get("/:id", getUser, (req, res) => {
+  res.json(res.user);
 });
 
 //creating emp
 router.post("/", async (req, res) => {
-  const employee = new Employee({
+  const user = new User({
     name: req.body.name,
     job: req.body.job,
   });
 
   try {
-    const newEmployee = await employee.save();
-    res.status(201).json(newEmployee);
+    const newUser = await user.save();
+    res.status(201).json(newUser);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 });
 
 //updating emp
-router.patch("/:id", getEmp, async (req, res) => {
+router.patch("/:id", getUser, async (req, res) => {
   if (req.body.name != null) {
-    res.employee.name = req.body.name;
+    res.user.name = req.body.name;
   }
   if (req.body.job != null) {
-    res.employee.job = req.body.job;
+    res.user.job = req.body.job;
   }
   try {
-    const updatedEmployee = await res.employee.save();
-    res.json(updatedEmployee);
+    const updatedUser = await res.user.save();
+    res.json(updatedUser);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -50,7 +50,7 @@ router.patch("/:id", getEmp, async (req, res) => {
 
 //deleting emp
 
-router.delete("/:id", getEmp, async (req, res) => {
+router.delete("/:id", getUser, async (req, res) => {
   try {
     res.employee.remove();
     res.json({ message: "Employee was deleted" });
@@ -59,17 +59,17 @@ router.delete("/:id", getEmp, async (req, res) => {
   }
 });
 
-async function getEmp(req, res, next) {
-  let employee;
+async function getUser(req, res, next) {
+  let user;
   try {
-    employee = await Employee.findById(req.params.id);
-    if (employee == null) {
-      return res.status(404).json({ message: "employee not found" });
+    user = await User.findById(req.params.id);
+    if (user == null) {
+      return res.status(404).json({ message: "user not found!" });
     }
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
-  res.employee = employee;
+  res.user = user;
 
   next();
 }

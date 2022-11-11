@@ -1,0 +1,13 @@
+//getting all users
+GET http://localhost:3030/users
+
+###
+
+//creating a new user
+POST http://localhost:3030/users
+Content-Type: application/json
+
+{
+    "name" : "Ahmed Seifeldin",
+    "job" : "SWE"
+}

@@ -1,16 +1,20 @@
 require("dotenv").config();
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
 
+const app = express();
+app.use(express.json());
+
+//db configs
 mongoose.connect(process.env.DATABASE);
 const db = mongoose.connection;
 db.on("error", (err) => console.error(err));
-db.once("open", () => console.log("connected to database"));
+db.once("open", () => console.log("database connected"));
 
-app.use(express.json());
+//middleware
+const usersRouter = require("./routes/users");
+app.use("/users", usersRouter);
 
-const empRouter = require("./routes/employees");
-app.use("/employees", empRouter);
-
-app.listen(3000, () => console.log("server running"));
+//port and listening
+const port = process.env.PORT || 3030;
+app.listen(port, () => console.log("server running"));
