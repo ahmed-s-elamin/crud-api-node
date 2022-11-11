@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-//updating emp
+//updating user
 router.patch("/:id", getUser, async (req, res) => {
   if (req.body.name != null) {
     res.user.name = req.body.name;
@@ -48,17 +48,18 @@ router.patch("/:id", getUser, async (req, res) => {
   }
 });
 
-//deleting emp
+//deleting user
 
 router.delete("/:id", getUser, async (req, res) => {
   try {
-    res.employee.remove();
-    res.json({ message: "Employee was deleted" });
+    res.user.remove();
+    res.json({ message: "User was deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
 
+//middleware
 async function getUser(req, res, next) {
   let user;
   try {

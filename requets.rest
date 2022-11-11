@@ -8,6 +8,24 @@ POST http://localhost:3030/users
 Content-Type: application/json
 
 {
-    "name" : "Ahmed Seifeldin",
-    "job" : "SWE"
+    "name" : "Ahmed Elamin",
+    "job" : "Director"
 }
+###
+
+//getting one user
+GET http://localhost:3030/users/id here
+###
+DELETE http://localhost:3030/users/ id here
+###
+
+//updating a user
+PATCH http://localhost:3030/users/636e2491997181ac07c0d8ea 
+Content-Type: application/json
+
+{
+    "name" : "Ahmed Elamin",
+    "job" : "Manager"
+}
+###
+

@@ -8,7 +8,7 @@
     "dev": "nodemon server"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ahmed Elamin",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
