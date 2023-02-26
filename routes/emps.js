@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/user");
+const Emp = require("../models/emp");
 
 // getting all emps
 router.get("/", async (req, res) => {
@@ -19,14 +19,16 @@ router.get("/:id", getUser, (req, res) => {
 
 //creating emp
 router.post("/", async (req, res) => {
-  const user = new User({
-    name: req.body.name,
+  const emp = new Emp({
+    title: req.body.title,
+    author: req.body.author,
+    age: req.body.age,
     job: req.body.job,
   });
 
   try {
-    const newUser = await user.save();
-    res.status(201).json(newUser);
+    const newEmp = await emp.save();
+    res.status(201).json(newEmp);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

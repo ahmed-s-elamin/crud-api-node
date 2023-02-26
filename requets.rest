@@ -4,11 +4,13 @@ GET http://localhost:3030/users
 ###
 
 //creating a new user
-POST http://localhost:3030/users
+POST http://localhost:3030/emp
 Content-Type: application/json
 
 {
-    "name" : "Eddy",
+    "title" : "new book",
+    "author" : "eddy",
+    "age" : 23,
     "job" : "Engineer"
 }
 ###
