@@ -19,7 +19,7 @@ GET http://localhost:3030/books/
 ###
 
 //updating a user
-PATCH http://localhost:3030/books/63fbadd4ea17bbeee1aced6f 
+PATCH http://localhost:3030/books/ 
 Content-Type: application/json
 
 {
@@ -28,6 +28,6 @@ Content-Type: application/json
     "price" : 29.99
 }
 ###
-DELETE http://localhost:3030/books/63fba7bfc0f215763995f0dc
+DELETE http://localhost:3030/books/
 ###
 
