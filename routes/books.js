@@ -8,6 +8,9 @@ router.post("/new", async (req, res) => {
     name: req.body.name,
     author: req.body.author,
     price: req.body.price,
+    description: req.body.description,
+    available: req.body.available,
+    image: req.body.image,
   });
 
   try {
@@ -46,6 +49,12 @@ router.patch("/:id", getBook, async (req, res) => {
   }
   if (req.body.price != null) {
     res.book.price = req.body.price;
+  }
+  if (req.body.available != null) {
+    res.book.available = req.body.available;
+  }
+  if (req.body.image != null) {
+    res.book.image = req.body.image;
   }
   try {
     const updatedBook = await res.book.save();

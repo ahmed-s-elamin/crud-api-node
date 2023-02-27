@@ -3,10 +3,12 @@ POST http://localhost:3030/books/new
 Content-Type: application/json
 
 {
-    "name" : "Spider-man: no way home",
+    "name" : "Spider-man: hi home",
     "author" : "Marvel",
-    "description" : "Peter's identity has been revealed",
-    "price" : 29.99
+    "description" : "After returning from the snap.",
+    "price" : 39.99,
+    "image" : "cover.png",
+    "available": true
 }
 ###
 //getting all users
@@ -19,15 +21,13 @@ GET http://localhost:3030/books/
 ###
 
 //updating a user
-PATCH http://localhost:3030/books/ 
+PATCH http://localhost:3030/books/63fc628ac0e71231d90ac5c5
 Content-Type: application/json
 
 {
-    "name" : "Oliver Twist",
-    "author" : "Charles Dickens",
-    "price" : 29.99
+    "available" : false
 }
 ###
-DELETE http://localhost:3030/books/
+DELETE http://localhost:3030/books/63fc61cf7d9b5477e962a6bf
 ###
 
