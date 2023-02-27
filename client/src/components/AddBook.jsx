@@ -1,7 +1,7 @@
 import React from "react";
 
 const AddBook = () => {
-  return <div>AddBook</div>;
+  return <div>Add book from hear</div>;
 };
 
 export default AddBook;
