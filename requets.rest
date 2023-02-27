@@ -1,32 +1,33 @@
-//getting all users
-GET http://localhost:3030/users
-
-###
-
-//creating a new user
-POST http://localhost:3030/emp
+//creating a new book
+POST http://localhost:3030/books/new
 Content-Type: application/json
 
 {
-    "title" : "new book",
-    "author" : "eddy",
-    "age" : 23,
-    "job" : "Engineer"
+    "name" : "Spider-man: no way home",
+    "author" : "Marvel",
+    "description" : "Peter's identity has been revealed",
+    "price" : 29.99
 }
+###
+//getting all users
+
+GET http://localhost:3030/books
 ###
 
 //getting one user
-GET http://localhost:3030/users/
-###
-DELETE http://localhost:3030/users/
+GET http://localhost:3030/books/
 ###
 
 //updating a user
-PATCH http://localhost:3030/users/63fb1d718c70b268f0d937ba 
+PATCH http://localhost:3030/books/63fbadd4ea17bbeee1aced6f 
 Content-Type: application/json
 
 {
-    "job" : "Manager"
+    "name" : "Oliver Twist",
+    "author" : "Charles Dickens",
+    "price" : 29.99
 }
+###
+DELETE http://localhost:3030/books/63fba7bfc0f215763995f0dc
 ###
 

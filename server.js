@@ -12,8 +12,8 @@ db.on("error", (err) => console.error(err));
 db.once("open", () => console.log("database connected"));
 
 //middleware
-const empRouter = require("./routes/emps");
-app.use("/emp", empRouter);
+const booksRouter = require("./routes/books");
+app.use("/books", booksRouter);
 
 //port and listening
 const port = process.env.PORT || 3030;
